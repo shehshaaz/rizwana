@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ZoomIn, ExternalLink } from 'lucide-react';
+import { X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
 import './Portfolio.css';
 
 const projects = [
@@ -88,11 +88,119 @@ const projects = [
         year: '2023',
         area: '—',
     },
+    {
+        id: 8,
+        category: 'Cafe',
+        title: 'Cafe Design',
+        subtitle: 'Cafe Interior · Commercial',
+        description: 'A collection of cafe interior designs exploring warmth, texture, and atmosphere. Each space is crafted to balance rustic charm with contemporary refinement — creating environments that invite lingering, conversation, and connection over coffee.',
+        tags: ['Cafe', 'Commercial', 'Interior'],
+        image: '/exterior/cafe1.jpeg',
+        // Multiple images for swipeable gallery
+        images: [
+            '/exterior/cafe1.jpeg',
+            '/exterior/cafe-2.jpeg',
+            '/exterior/cafe-3.jpeg',
+            '/exterior/cafe-4.jpeg',
+            '/exterior/cafe-6.jpeg',
+        ],
+        gradient: 'linear-gradient(135deg, #D4BC9E 0%, #F2E4D2 50%, #C9737A 100%)',
+        year: '2024',
+        area: '—',
+    },
 ];
 
-const filters = ['All', 'Architecture', 'Interior', 'Concepts'];
+const filters = ['All', 'Architecture', 'Interior', 'Cafe', 'Concepts'];
 
+// ── Swipeable Image Gallery (used inside modal) ──────────────────────────────
+function ImageGallery({ images }) {
+    const [current, setCurrent] = useState(0);
+    const [direction, setDirection] = useState(0);
+
+    const go = (dir) => {
+        setDirection(dir);
+        setCurrent(prev => (prev + dir + images.length) % images.length);
+    };
+
+    // Keyboard navigation
+    useEffect(() => {
+        const handler = (e) => {
+            if (e.key === 'ArrowLeft') go(-1);
+            if (e.key === 'ArrowRight') go(1);
+        };
+        window.addEventListener('keydown', handler);
+        return () => window.removeEventListener('keydown', handler);
+    }, []);
+
+    const variants = {
+        enter: (dir) => ({ x: dir > 0 ? '100%' : '-100%', opacity: 0 }),
+        center: { x: 0, opacity: 1 },
+        exit: (dir) => ({ x: dir > 0 ? '-100%' : '100%', opacity: 0 }),
+    };
+
+    return (
+        <div className="gallery-wrap">
+            {/* Slides */}
+            <div className="gallery-viewport">
+                <AnimatePresence initial={false} custom={direction} mode="popLayout">
+                    <motion.img
+                        key={current}
+                        src={images[current]}
+                        alt={`View ${current + 1}`}
+                        className="gallery-img"
+                        custom={direction}
+                        variants={variants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
+                        drag="x"
+                        dragConstraints={{ left: 0, right: 0 }}
+                        dragElastic={0.15}
+                        onDragEnd={(_, info) => {
+                            if (info.offset.x < -60) go(1);
+                            else if (info.offset.x > 60) go(-1);
+                        }}
+                    />
+                </AnimatePresence>
+
+                {/* Arrows */}
+                {images.length > 1 && (
+                    <>
+                        <button className="gallery-arrow gallery-arrow-left" onClick={() => go(-1)} aria-label="Previous image">
+                            <ChevronLeft size={20} />
+                        </button>
+                        <button className="gallery-arrow gallery-arrow-right" onClick={() => go(1)} aria-label="Next image">
+                            <ChevronRight size={20} />
+                        </button>
+                    </>
+                )}
+
+                {/* Counter */}
+                <div className="gallery-counter">{current + 1} / {images.length}</div>
+            </div>
+
+            {/* Dot indicators */}
+            {images.length > 1 && (
+                <div className="gallery-dots">
+                    {images.map((_, i) => (
+                        <button
+                            key={i}
+                            className={`gallery-dot ${i === current ? 'active' : ''}`}
+                            onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
+                            aria-label={`Go to image ${i + 1}`}
+                        />
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+}
+
+// ── Project Modal ─────────────────────────────────────────────────────────────
 function ProjectModal({ project, onClose }) {
+    const images = project.images || (project.image ? [project.image] : []);
+
     useEffect(() => {
         document.body.style.overflow = 'hidden';
         const handleKey = (e) => { if (e.key === 'Escape') onClose(); };
@@ -120,27 +228,41 @@ function ProjectModal({ project, onClose }) {
                 transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
                 onClick={(e) => e.stopPropagation()}
             >
-                {/* Modal image */}
+                {/* Close button */}
+                <button className="modal-close" onClick={onClose} aria-label="Close modal" id="modal-close-btn">
+                    <X size={20} />
+                </button>
+
+                {/* Image area — gallery if multiple, single if one */}
                 <div className="modal-image" style={{ background: project.gradient }}>
-                    {project.image && (
-                        <img
-                            src={project.image}
-                            alt={project.title}
-                            className="modal-img"
-                        />
+                    {images.length > 1 ? (
+                        <ImageGallery images={images} />
+                    ) : images.length === 1 ? (
+                        <>
+                            <img src={images[0]} alt={project.title} className="modal-img" />
+                            <div className="modal-image-overlay" />
+                            <div className="modal-image-content">
+                                <span className="modal-category">{project.category}</span>
+                                <h3 className="modal-image-title">{project.title}</h3>
+                            </div>
+                        </>
+                    ) : (
+                        <div className="modal-image-content">
+                            <span className="modal-category">{project.category}</span>
+                            <h3 className="modal-image-title">{project.title}</h3>
+                        </div>
                     )}
-                    <div className="modal-image-overlay" />
-                    <div className="modal-image-content">
-                        <span className="modal-category">{project.category}</span>
-                        <h3 className="modal-image-title">{project.title}</h3>
-                    </div>
-                    <button className="modal-close" onClick={onClose} aria-label="Close modal" id="modal-close-btn">
-                        <X size={20} />
-                    </button>
                 </div>
 
                 {/* Modal body */}
                 <div className="modal-body">
+                    {/* Show title/category below image when gallery mode */}
+                    {images.length > 1 && (
+                        <div className="modal-gallery-header">
+                            <span className="modal-category-inline">{project.category}</span>
+                            <h3 className="modal-title-inline">{project.title}</h3>
+                        </div>
+                    )}
                     <div className="modal-meta">
                         <div className="modal-meta-item">
                             <span className="meta-label">Location</span>
@@ -155,9 +277,7 @@ function ProjectModal({ project, onClose }) {
                             <span className="meta-value">{project.area}</span>
                         </div>
                     </div>
-
                     <p className="modal-description">{project.description}</p>
-
                     <div className="modal-tags">
                         {project.tags.map(tag => (
                             <span key={tag} className="modal-tag">{tag}</span>
@@ -169,6 +289,7 @@ function ProjectModal({ project, onClose }) {
     );
 }
 
+// ── Project Card ──────────────────────────────────────────────────────────────
 function ProjectCard({ project, index, onClick }) {
     const ref = useRef(null);
     useEffect(() => {
@@ -185,6 +306,8 @@ function ProjectCard({ project, index, onClick }) {
         if (el) observer.observe(el);
         return () => { if (el) observer.unobserve(el); };
     }, [index]);
+
+    const hasGallery = project.images && project.images.length > 1;
 
     return (
         <div
@@ -210,6 +333,12 @@ function ProjectCard({ project, index, onClick }) {
                     <ZoomIn size={24} className="card-zoom-icon" />
                 </div>
                 <span className="card-category-badge">{project.category}</span>
+                {/* Gallery badge */}
+                {hasGallery && (
+                    <span className="card-gallery-badge">
+                        ⊞ {project.images.length} photos
+                    </span>
+                )}
                 <div className="card-image-text">
                     <span className="card-year">{project.year}</span>
                 </div>
@@ -230,6 +359,7 @@ function ProjectCard({ project, index, onClick }) {
     );
 }
 
+// ── Main Portfolio Section ────────────────────────────────────────────────────
 export default function Portfolio() {
     const [activeFilter, setActiveFilter] = useState('All');
     const [selectedProject, setSelectedProject] = useState(null);
