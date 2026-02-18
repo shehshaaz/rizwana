@@ -8,6 +8,7 @@
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   /* Ensure navbar always has a background on mobile so menu is visible */
   background: transparent;
+  overflow: visible;
 }
 
 .navbar.scrolled {
@@ -38,12 +39,14 @@
 
 /* Real logo image */
 .logo-img {
-  height: 48px;
+  height: 108px;
   width: auto;
   object-fit: contain;
   display: block;
-  /* If logo has a light background, add a subtle drop shadow */
   filter: drop-shadow(0 1px 3px rgba(44, 42, 40, 0.12));
+  /* Pull logo up/down so it overflows navbar without pushing height */
+  margin-top: -24px;
+  margin-bottom: -24px;
 }
 
 /* Links */
