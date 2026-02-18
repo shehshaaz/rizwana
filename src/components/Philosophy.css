@@ -1,0 +1,182 @@
+.philosophy {
+  position: relative;
+  padding: 8rem 0;
+  background: var(--charcoal);
+  overflow: hidden;
+}
+
+.philosophy-bg {
+  position: absolute;
+  inset: -20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.philosophy-geo {
+  width: 70%;
+  max-width: 700px;
+  opacity: 0.6;
+}
+
+/* Header */
+.philosophy-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.philosophy-header .section-label {
+  justify-content: center;
+  color: var(--rose-light);
+}
+
+.philosophy-header .section-label::before {
+  background: var(--rose-light);
+  display: none;
+}
+
+.philosophy-header .section-title {
+  color: var(--white);
+}
+
+.philosophy-header .section-title em {
+  color: var(--rose-light);
+}
+
+.philosophy-intro {
+  color: rgba(253, 250, 247, 0.6);
+  font-size: 0.95rem;
+  line-height: 1.9;
+  margin-top: 1rem;
+}
+
+/* Pillars */
+.philosophy-pillars {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 5rem;
+}
+
+.pillar-block {
+  position: relative;
+  padding: 3rem;
+  border: 1px solid rgba(232, 180, 184, 0.12);
+  display: flex;
+  gap: 1.5rem;
+  transition: background 0.5s ease;
+}
+
+.pillar-block:hover {
+  background: rgba(201, 115, 122, 0.06);
+}
+
+.pillar-num {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: rgba(201, 115, 122, 0.25);
+  line-height: 1;
+  flex-shrink: 0;
+  letter-spacing: -0.02em;
+}
+
+.pillar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.pillar-arabic {
+  font-family: var(--font-arabic);
+  font-size: 0.9rem;
+  color: var(--rose-light);
+  opacity: 0.6;
+}
+
+.pillar-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.pillar-body {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: rgba(253, 250, 247, 0.55);
+  line-height: 1.8;
+}
+
+.pillar-line {
+  position: absolute;
+  bottom: 0;
+  left: 3rem;
+  right: 3rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(232, 180, 184, 0.2), transparent);
+}
+
+/* Quote */
+.philosophy-quote {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 3rem;
+  border: 1px solid rgba(232, 180, 184, 0.15);
+  border-radius: var(--radius-lg);
+  background: rgba(201, 115, 122, 0.05);
+}
+
+.quote-mark {
+  font-family: var(--font-serif);
+  font-size: 5rem;
+  color: var(--rose);
+  opacity: 0.3;
+  line-height: 0.5;
+  margin-bottom: 1rem;
+}
+
+.quote-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(253, 250, 247, 0.85);
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.quote-author {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rose-light);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.quote-arabic {
+  font-family: var(--font-arabic);
+  font-size: 0.95rem;
+  color: rgba(232, 180, 184, 0.4);
+  direction: rtl;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .philosophy-pillars { grid-template-columns: 1fr; }
+  .pillar-block { padding: 2rem; }
+  .philosophy-quote { padding: 2rem; }
+}

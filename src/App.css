@@ -1,0 +1,33 @@
+/* App-level styles */
+.app {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Smooth scroll for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Lenis-style ultra-smooth scroll feel via CSS */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Cursor glow effect on interactive elements */
+a, button, [role="button"] {
+  cursor: pointer;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Selection color */
+::selection {
+  background: var(--rose-pale);
+  color: var(--charcoal);
+}

@@ -1,0 +1,321 @@
+.contact {
+  position: relative;
+  padding: 8rem 0;
+  background: var(--sand);
+  overflow: hidden;
+}
+
+.contact-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 60% at 80% 20%, rgba(245, 230, 232, 0.6) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(232, 180, 184, 0.3) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Header */
+.contact-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-header .section-label { justify-content: center; }
+.contact-header .section-label::before { display: none; }
+
+.contact-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-top: 1rem;
+}
+
+/* Grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 5rem;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+/* Info column */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  position: relative;
+}
+
+.contact-arabic-greeting {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.arabic-greeting-text {
+  font-family: var(--font-arabic);
+  font-size: 2.5rem;
+  color: var(--charcoal);
+  direction: rtl;
+  line-height: 1.2;
+}
+
+.arabic-greeting-sub {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rose);
+}
+
+/* Details */
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.detail-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--rose-pale);
+  border: 1px solid var(--rose-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--rose);
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.contact-detail-item:hover .detail-icon-wrap {
+  background: var(--rose);
+  color: white;
+  transform: scale(1.05);
+}
+
+.detail-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 0.2rem;
+}
+
+.detail-value {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.detail-value:hover { color: var(--rose); }
+
+/* Socials */
+.contact-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.socials-label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.socials-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.social-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--white-pure);
+  border: 1px solid var(--sand-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.social-btn:hover {
+  background: var(--rose);
+  border-color: var(--rose);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(201, 115, 122, 0.3);
+}
+
+/* Geo deco */
+.contact-geo-deco {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  opacity: 0.6;
+  animation: rotateSlow 40s linear infinite;
+}
+
+/* Form column */
+.contact-form-col {
+  background: var(--white-pure);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  box-shadow: var(--shadow-card);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* Form groups with floating labels */
+.form-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  position: absolute;
+  top: 0.9rem;
+  left: 0;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-light);
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+}
+
+.form-group.focused label,
+.form-group.filled label {
+  top: -1.1rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rose);
+}
+
+.form-group input,
+.form-group textarea {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--sand-dark);
+  padding: 0.8rem 0;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  outline: none;
+  resize: none;
+  transition: border-color 0.35s ease;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-bottom-color: transparent;
+}
+
+.input-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--rose-light), var(--rose));
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.form-group.focused .input-line { width: 100%; }
+
+/* Submit */
+.form-submit {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+.form-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.submit-loading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Success */
+.form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  gap: 1rem;
+  min-height: 300px;
+}
+
+.success-icon {
+  font-size: 3rem;
+  color: var(--rose);
+  animation: slowDrift 3s ease-in-out infinite;
+}
+
+.success-title {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--charcoal);
+}
+
+.success-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 320px;
+}
+
+.success-arabic {
+  font-family: var(--font-arabic);
+  font-size: 1.5rem;
+  color: var(--rose);
+  margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-form-col { padding: 2rem; }
+}
