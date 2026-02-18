@@ -68,8 +68,11 @@ export default function Hero() {
 
     return (
         <section id="hero" className="hero">
-            {/* Background gradient */}
-            <div className="hero-bg" />
+            {/* Real hero background image */}
+            <div className="hero-bg">
+                <img src="/hero-section.jpeg" alt="" className="hero-bg-img" aria-hidden="true" />
+                <div className="hero-bg-overlay" />
+            </div>
 
             {/* Geometric SVG */}
             <GeoLines />
@@ -153,11 +156,11 @@ export default function Hero() {
                 >
                     <div className="hero-portrait-frame">
                         <div className="portrait-inner">
-                            <div className="portrait-placeholder">
-                                <div className="portrait-monogram">AR</div>
-                                <p className="portrait-name-text">Ayshath Rizwana M A</p>
-                                <p className="portrait-title-text">Designer</p>
-                            </div>
+                            <img
+                                src="/hero-section.jpeg"
+                                alt="Ayshath Rizwana M A — Architectural & Interior Designer"
+                                className="portrait-photo"
+                            />
                         </div>
                         <div className="portrait-ring portrait-ring-1" />
                         <div className="portrait-ring portrait-ring-2" />

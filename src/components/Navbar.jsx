@@ -36,8 +36,11 @@ export default function Navbar() {
 
     const handleNavClick = (href) => {
         setMenuOpen(false);
-        const el = document.querySelector(href);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        // Delay scroll until mobile menu exit animation completes
+        setTimeout(() => {
+            const el = document.querySelector(href);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 350);
     };
 
     return (
@@ -94,10 +97,10 @@ export default function Navbar() {
                 {menuOpen && (
                     <motion.div
                         className="mobile-menu"
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                        initial={{ opacity: 0, y: -12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -12 }}
+                        transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
                     >
                         {navLinks.map((link, i) => (
                             <motion.a
@@ -105,9 +108,9 @@ export default function Navbar() {
                                 href={link.href}
                                 className="mobile-link"
                                 onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                                initial={{ opacity: 0, x: -20 }}
+                                initial={{ opacity: 0, x: -16 }}
                                 animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: i * 0.07 }}
+                                transition={{ delay: i * 0.06, duration: 0.3 }}
                             >
                                 {link.label}
                             </motion.a>

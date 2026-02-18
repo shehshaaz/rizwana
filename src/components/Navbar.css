@@ -6,6 +6,8 @@
   z-index: 1000;
   padding: 1.5rem 0;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* Ensure navbar always has a background on mobile so menu is visible */
+  background: transparent;
 }
 
 .navbar.scrolled {
@@ -137,10 +139,13 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-  background: rgba(253, 250, 247, 0.97);
+  background: rgba(253, 250, 247, 0.98);
   backdrop-filter: blur(20px);
-  overflow: hidden;
+  -webkit-backdrop-filter: blur(20px);
+  /* Do NOT use overflow:hidden — it clips the Framer Motion height animation */
   border-top: 1px solid var(--sand-dark);
+  box-shadow: 0 8px 30px rgba(44, 42, 40, 0.12);
+  width: 100%;
 }
 
 .mobile-link {
@@ -169,6 +174,14 @@
   .navbar-links { display: none; }
   .navbar-cta { display: none; }
   .hamburger { display: flex; }
+
+  /* Give navbar a solid background on mobile even before scrolling */
+  .navbar {
+    background: rgba(253, 250, 247, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 2px 20px rgba(44, 42, 40, 0.06);
+  }
 }
 
 @media (min-width: 901px) {

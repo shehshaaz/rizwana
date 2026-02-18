@@ -10,10 +10,24 @@
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 80% 80% at 70% 40%, rgba(245, 230, 232, 0.6) 0%, transparent 60%),
-              radial-gradient(ellipse 60% 60% at 20% 80%, rgba(242, 228, 210, 0.5) 0%, transparent 50%),
-              linear-gradient(135deg, var(--white) 0%, var(--sand) 100%);
   z-index: 0;
+  overflow: hidden;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: blur(2px) saturate(0.7);
+  transform: scale(1.05); /* hide blur edges */
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(253, 250, 247, 0.88) 0%, rgba(245, 230, 232, 0.75) 40%, rgba(242, 228, 210, 0.65) 100%);
 }
 
 /* Geometric SVG */
@@ -222,15 +236,13 @@
   box-shadow: var(--shadow-card);
 }
 
-.portrait-placeholder {
+/* Portrait photo */
+.portrait-photo {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8rem;
-  background: linear-gradient(160deg, rgba(245, 230, 232, 0.8) 0%, rgba(232, 180, 184, 0.4) 50%, rgba(242, 228, 210, 0.6) 100%);
+  object-fit: cover;
+  object-position: center top;
+  display: block;
 }
 
 .portrait-monogram {

@@ -48,12 +48,14 @@ export default function About() {
                 <div className={`about-image-col reveal-left`} ref={imageRef}>
                     <div className="about-image-frame">
                         <div className="about-image-inner">
-                            {/* Decorative portrait placeholder */}
-                            <div className="about-portrait">
-                                <div className="about-portrait-monogram">AR</div>
-                                <div className="about-portrait-overlay">
-                                    <span className="about-arabic-text">مصممة معمارية</span>
-                                </div>
+                            {/* Real portrait photo */}
+                            <img
+                                src="/interior/WhatsApp Image 2026-02-18 at 7.35.56 PM.jpeg"
+                                alt="Ayshath Rizwana M A"
+                                className="about-portrait-photo"
+                            />
+                            <div className="about-portrait-overlay">
+                                <span className="about-arabic-text">مصممة معمارية</span>
                             </div>
                         </div>
                         {/* Floating accent card */}

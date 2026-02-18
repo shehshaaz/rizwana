@@ -55,8 +55,8 @@ export default function Footer() {
                     <div className="footer-contact-col">
                         <span className="footer-nav-title">Get In Touch</span>
                         <a href="mailto:rizwana@design.com" className="footer-link">rizwana@design.com</a>
-                        <a href="tel:+971000000000" className="footer-link">+971 00 000 0000</a>
-                        <span className="footer-service">UAE · Available Worldwide</span>
+                        <a href="tel:+919072944302" className="footer-link">+91 90729 44302</a>
+                        <span className="footer-service">Kasaragod, Kerala · India</span>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Mail, Phone, MapPin, Instagram, Linkedin, Dribbble } from 'lucide-react';
 import './Contact.css';
@@ -72,7 +72,7 @@ export default function Contact() {
                                 </div>
                                 <div>
                                     <span className="detail-label">Phone</span>
-                                    <a href="tel:+971000000000" className="detail-value">+971 00 000 0000</a>
+                                    <a href="tel:+919072944302" className="detail-value">+91 90729 44302</a>
                                 </div>
                             </div>
 
@@ -82,7 +82,7 @@ export default function Contact() {
                                 </div>
                                 <div>
                                     <span className="detail-label">Location</span>
-                                    <span className="detail-value">UAE · Available Worldwide</span>
+                                    <span className="detail-value">Kasaragod, Kerala · India</span>
                                 </div>
                             </div>
                         </div>

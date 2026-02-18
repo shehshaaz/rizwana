@@ -7,74 +7,86 @@ const projects = [
     {
         id: 1,
         category: 'Architecture',
-        title: 'Desert Bloom Residence',
-        subtitle: 'Private Villa · UAE',
-        description: 'A contemporary villa that draws from the organic forms of desert flora, featuring sweeping curved walls, shaded courtyards, and a palette of warm sandstone and ivory. The design integrates passive cooling through strategic orientation and deep overhangs.',
-        tags: ['Residential', 'Sustainable', 'Contemporary'],
+        title: 'Exterior Design I',
+        subtitle: 'Architectural Project',
+        description: 'A contemporary exterior design that draws from clean geometric forms and warm material palettes. The facade composition balances solid and void, creating a dynamic interplay of light and shadow throughout the day.',
+        tags: ['Exterior', 'Residential', 'Contemporary'],
+        image: '/exterior/1.jpeg',
         gradient: 'linear-gradient(135deg, #C9737A 0%, #E8B4B8 40%, #F2E4D2 100%)',
-        accent: '#C9737A',
         year: '2024',
-        area: '450 m²',
+        area: '—',
     },
     {
         id: 2,
-        category: 'Interior',
-        title: 'Saffron Living Suite',
-        subtitle: 'Luxury Apartment · Dubai',
-        description: 'A refined residential interior that merges Arabesque geometric patterns with Scandinavian minimalism. Rich saffron accents, hand-woven textiles, and bespoke joinery create a space that feels both opulent and serene.',
-        tags: ['Luxury', 'Residential', 'Arabesque'],
+        category: 'Architecture',
+        title: 'Exterior Design II',
+        subtitle: 'Architectural Project',
+        description: 'An architectural exterior study exploring the relationship between built form and landscape. Thoughtful massing and material choices create a structure that feels rooted in its context while projecting a refined, modern character.',
+        tags: ['Exterior', 'Architecture', 'Modern'],
+        image: '/exterior/2.jpeg',
         gradient: 'linear-gradient(135deg, #E8B4B8 0%, #F5E6E8 40%, #C9737A 100%)',
-        accent: '#A85560',
         year: '2024',
-        area: '180 m²',
+        area: '—',
     },
     {
         id: 3,
-        category: 'Concepts',
-        title: 'Lattice Cultural Centre',
-        subtitle: 'Public Building · Concept',
-        description: 'A conceptual cultural centre inspired by the intricate mashrabiya screens of Islamic architecture. The perforated facade creates ever-changing light patterns throughout the day, transforming the interior into a living canvas.',
-        tags: ['Cultural', 'Conceptual', 'Islamic Geometry'],
+        category: 'Interior',
+        title: 'Living Space',
+        subtitle: 'Interior Design Project',
+        description: 'A refined residential interior that harmonises warmth and elegance. Carefully selected furnishings, layered lighting, and a cohesive material palette create a living space that feels both inviting and sophisticated.',
+        tags: ['Residential', 'Living Room', 'Interior'],
+        image: '/interior/2.jpg.jpeg',
         gradient: 'linear-gradient(135deg, #F2E4D2 0%, #E8B4B8 50%, #D4BC9E 100%)',
-        accent: '#C9737A',
-        year: '2023',
-        area: '2,400 m²',
+        year: '2024',
+        area: '—',
     },
     {
         id: 4,
         category: 'Interior',
-        title: 'Ivory Wellness Spa',
-        subtitle: 'Commercial Interior · Abu Dhabi',
-        description: 'A sanctuary of calm designed around the philosophy of mindful restoration. Travertine surfaces, soft ambient lighting, and cascading water features create an environment that soothes the senses from the moment of entry.',
-        tags: ['Commercial', 'Wellness', 'Biophilic'],
+        title: 'Front Elevation Interior',
+        subtitle: 'Interior Design Project',
+        description: 'An interior elevation study that demonstrates the careful orchestration of spatial proportions, material transitions, and decorative detail. Every surface is considered as part of a unified design language.',
+        tags: ['Interior', 'Elevation', 'Detail'],
+        image: '/interior/front[1].jpg.jpeg',
         gradient: 'linear-gradient(135deg, #F5E6E8 0%, #D4BC9E 50%, #E8B4B8 100%)',
-        accent: '#7A7068',
         year: '2023',
-        area: '320 m²',
+        area: '—',
     },
     {
         id: 5,
-        category: 'Architecture',
-        title: 'Crescent Tower',
-        subtitle: 'Mixed-Use Tower · Concept',
-        description: 'A 32-storey mixed-use tower whose silhouette references the crescent moon — a symbol deeply embedded in Islamic culture. Sky gardens at every 8th floor create vertical green corridors, while the facade\'s parametric patterning filters harsh sunlight.',
-        tags: ['High-Rise', 'Mixed-Use', 'Parametric'],
+        category: 'Interior',
+        title: 'Kitchen Design I',
+        subtitle: 'Kitchen Interior · Residential',
+        description: 'A kitchen interior designed around the principles of functional elegance. Clean cabinetry lines, premium countertop materials, and considered lighting create a culinary space that is as beautiful as it is practical.',
+        tags: ['Kitchen', 'Residential', 'Functional'],
+        image: '/interior/kitchen 3.jpg.jpeg',
         gradient: 'linear-gradient(135deg, #2C2A28 0%, #4A4540 40%, #C9737A 100%)',
-        accent: '#E8B4B8',
         year: '2024',
-        area: '18,000 m²',
+        area: '—',
     },
     {
         id: 6,
-        category: 'Concepts',
-        title: 'Garden of Verses',
-        subtitle: 'Landscape Pavilion · Concept',
-        description: 'An immersive landscape pavilion where poetry and architecture merge. Verses from classical Arabic poetry are etched into stone pathways, while the pavilion structure frames views of a contemplative garden designed around the four rivers of paradise.',
-        tags: ['Landscape', 'Cultural', 'Poetic'],
+        category: 'Interior',
+        title: 'Kitchen Design II',
+        subtitle: 'Kitchen Interior · Residential',
+        description: 'A second kitchen study exploring a warmer, more textured approach. Natural wood tones, stone surfaces, and integrated appliances come together in a design that celebrates the kitchen as the heart of the home.',
+        tags: ['Kitchen', 'Warm Tones', 'Natural Materials'],
+        image: '/interior/kitchen33.jpg.jpeg',
         gradient: 'linear-gradient(135deg, #E8D5BC 0%, #F5E6E8 50%, #C9737A 100%)',
-        accent: '#A85560',
         year: '2023',
-        area: '800 m²',
+        area: '—',
+    },
+    {
+        id: 7,
+        category: 'Interior',
+        title: 'Kitchen Design III',
+        subtitle: 'Kitchen Interior · Residential',
+        description: 'A contemporary kitchen that pushes the boundaries of spatial efficiency and aesthetic refinement. Handleless cabinetry, integrated lighting strips, and a monochromatic palette give this kitchen a sleek, timeless quality.',
+        tags: ['Kitchen', 'Contemporary', 'Minimalist'],
+        image: '/interior/kitchen44.jpg.jpeg',
+        gradient: 'linear-gradient(135deg, #C9737A 0%, #F2E4D2 50%, #E8B4B8 100%)',
+        year: '2023',
+        area: '—',
     },
 ];
 
@@ -110,6 +122,14 @@ function ProjectModal({ project, onClose }) {
             >
                 {/* Modal image */}
                 <div className="modal-image" style={{ background: project.gradient }}>
+                    {project.image && (
+                        <img
+                            src={project.image}
+                            alt={project.title}
+                            className="modal-img"
+                        />
+                    )}
+                    <div className="modal-image-overlay" />
                     <div className="modal-image-content">
                         <span className="modal-category">{project.category}</span>
                         <h3 className="modal-image-title">{project.title}</h3>
@@ -178,6 +198,14 @@ function ProjectCard({ project, index, onClick }) {
         >
             {/* Image area */}
             <div className="card-image" style={{ background: project.gradient }}>
+                {project.image && (
+                    <img
+                        src={project.image}
+                        alt={project.title}
+                        className="card-img"
+                        loading="lazy"
+                    />
+                )}
                 <div className="card-image-overlay">
                     <ZoomIn size={24} className="card-zoom-icon" />
                 </div>
