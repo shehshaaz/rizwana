@@ -50,7 +50,7 @@ export default function About() {
                         <div className="about-image-inner">
                             {/* Real portrait photo */}
                             <img
-                                src="/interior/WhatsApp Image 2026-02-18 at 7.35.56 PM.jpeg"
+                                src="/about-section.png"
                                 alt="Ayshath Rizwana M A"
                                 className="about-portrait-photo"
                             />

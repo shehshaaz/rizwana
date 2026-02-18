@@ -16,8 +16,7 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="footer-brand">
                         <div className="footer-logo">
-                            <span className="footer-logo-initials">AR</span>
-                            <span className="footer-logo-name">Rizwana</span>
+                            <img src="/logo.png" alt="Ayshath Rizwana M A" className="footer-logo-img" />
                         </div>
                         <p className="footer-tagline">
                             Crafting spaces where elegance meets purpose.

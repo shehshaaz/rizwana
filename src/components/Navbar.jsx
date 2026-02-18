@@ -53,8 +53,7 @@ export default function Navbar() {
             <div className="navbar-inner">
                 {/* Logo */}
                 <a href="#hero" className="navbar-logo" onClick={() => handleNavClick('#hero')}>
-                    <span className="logo-initials">AR</span>
-                    <span className="logo-text">Rizwana</span>
+                    <img src="/logo.png" alt="Ayshath Rizwana M A" className="logo-img" />
                 </a>
 
                 {/* Desktop Links */}
